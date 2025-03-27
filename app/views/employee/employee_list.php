@@ -47,8 +47,10 @@
         }
     </style>
 </head>
-<body class="bg-gray-100 p-6">
-    <div class="container mx-auto">
+<body class="bg-gray-100">
+    <?php require_once 'app/views/shares/header.php'; ?>
+    
+    <div class="container mx-auto p-6">
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">THÔNG TIN NHÂN VIÊN</h2>
         
         <div class="table-container overflow-x-auto shadow-lg rounded-lg">
