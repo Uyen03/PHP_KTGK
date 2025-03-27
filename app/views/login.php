@@ -4,56 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', Arial, sans-serif;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
+            min-height: 100vh;
+            line-height: 1.6;
         }
         .login-container {
             background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .login-container:hover {
+            transform: translateY(-5px);
         }
         .login-container h2 {
-            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-weight: 600;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
         }
         .login-container input {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 3px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .login-container input:focus {
+            border-color: #fda085;
         }
         .login-container button {
             width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
+            padding: 15px;
+            background: linear-gradient(to right, #f6d365, #fda085);
             color: white;
             border: none;
-            border-radius: 3px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .login-container button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .error {
-            color: red;
-            text-align: center;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        @media (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h2>Đăng Nhập</h2>
+        <h2>Đăng Nhập Hệ Thống</h2>
         <?php if (isset($error)): ?>
             <p class="error"><?php echo $error; ?></p>
         <?php endif; ?>
         <form action="index.php?controller=auth&action=handleLogin" method="POST">
-            <input type="text" name="username" placeholder="Tên đăng nhập" required>
-            <input type="password" name="password" placeholder="Mật khẩu" required>
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Tên đăng nhập" required>
+            </div>
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Mật khẩu" required>
+            </div>
             <button type="submit">Đăng Nhập</button>
         </form>
     </div>
