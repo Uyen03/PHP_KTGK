@@ -47,6 +47,35 @@
         text-align: center;
         margin-bottom: 15px;
     }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .container {
+            margin: 20px;
+            padding: 15px;
+        }
+        form input, form select, form button {
+            font-size: 12px;
+            padding: 8px;
+        }
+        h2 {
+            font-size: 18px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            margin: 10px;
+            padding: 10px;
+        }
+        form input, form select, form button {
+            font-size: 10px;
+            padding: 6px;
+        }
+        h2 {
+            font-size: 16px;
+        }
+    }
 </style>
 <div class="container">
     <h2>SỬA NHÂN VIÊN</h2>
